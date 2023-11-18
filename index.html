@@ -3,23 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="script.js"></script>
   <title>Minha Página</title>
 </head>
 <body>
-  <div id="login-container">
-    <h2>Login</h2>
-    <form id="login-form">
-      <label for="username">Usuário:</label>
-      <input type="text" id="username" required>
-      <label for="password">Senha:</label>
-      <input type="password" id="password" required>
-      <button type="button" onclick="login()">Entrar</button>
-    </form>
-  </div>
-
-  <div id="main-container" style="display:none;">
+  <div id="main-container">
     <h2>Cadastro de Clientes</h2>
     <form id="cliente-form">
       <label for="nome">Nome do Cliente:</label>
@@ -32,8 +19,18 @@
     </form>
 
     <h2>Clientes Cadastrados</h2>
-    <button type="button" onclick="buscarClientes()">Buscar Clientes</button>
-    <ul id="clientes-list"></ul>
+    <table id="clientes-table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>CPF</th>
+          <th>Número de Telefone</th>
+        </tr>
+      </thead>
+      <tbody id="clientes-list"></tbody>
+    </table>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
