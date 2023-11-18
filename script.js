@@ -1,46 +1,27 @@
-function login() {
-  // Implementar lógica de autenticação aqui
-  // Exemplo básico: Verificar se o usuário e senha estão corretos
-  var username = document.getElementById("username").value;
-  var password = document.getElementById("password").value;
-
-  if (username === "Gui123@" && password === "Vokarine123@") {
-    document.getElementById("login-container").style.display = "none";
-    document.getElementById("main-container").style.display = "block";
-  } else {
-    alert("Usuário ou senha incorretos");
-  }
-}
+var clientes = []; // Array para armazenar os clientes
 
 function salvarCliente() {
-  // Implementar lógica para salvar cliente
   var nome = document.getElementById("nome").value;
   var cpf = document.getElementById("cpf").value;
   var numero = document.getElementById("numero").value;
 
-  // Exemplo básico: Adicionar o cliente a uma lista
-  var cliente = { nome: nome, cpf: cpf, numero: numero };
-  // Lógica para armazenar ou enviar os dados ao backend
+  // Adiciona o cliente ao array
+  clientes.push({ nome: nome, cpf: cpf, numero: numero });
+
+  // Atualiza a tabela de clientes
+  atualizarTabelaClientes();
 
   alert("Cliente salvo com sucesso!");
 }
 
-function buscarClientes() {
-  // Implementar lógica para buscar clientes
-  // Exemplo básico: Listar clientes na página
+function atualizarTabelaClientes() {
   var clientesList = document.getElementById("clientes-list");
-  clientesList.innerHTML = ""; // Limpar lista antes de exibir
+  clientesList.innerHTML = ""; // Limpa a tabela antes de exibir
 
-  // Lógica para buscar clientes e adicionar à lista
-  // Substitua esta parte com a lógica real do seu aplicativo
-  var clientes = [
-    { nome: "Cliente 1", cpf: "111.111.111-11", numero: "123456789" },
-    { nome: "Cliente 2", cpf: "222.222.222-22", numero: "987654321" }
-  ];
-
+  // Preenche a tabela com os clientes do array
   clientes.forEach(function(cliente) {
-    var li = document.createElement("li");
-    li.textContent = `Nome: ${cliente.nome}, CPF: ${cliente.cpf}, Número: ${cliente.numero}`;
-    clientesList.appendChild(li);
+    var row = document.createElement("tr");
+    row.innerHTML = `<td>${cliente.nome}</td><td>${cliente.cpf}</td><td>${cliente.numero}</td>`;
+    clientesList.appendChild(row);
   });
 }
