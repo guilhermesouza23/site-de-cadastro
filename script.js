@@ -17,11 +17,16 @@ function salvarCliente() {
 function atualizarTabelaClientes() {
   var clientesList = document.getElementById("clientes-list");
   clientesList.innerHTML = ""; // Limpa a tabela antes de exibir
+  
 
   // Preenche a tabela com os clientes do array
   clientes.forEach(function(cliente) {
     var row = document.createElement("tr");
     row.innerHTML = `<td>${cliente.nome}</td><td>${cliente.cpf}</td><td>${cliente.numero}</td>`;
     clientesList.appendChild(row);
+    function verClientes() {
+  atualizarTabelaClientes();
+}
+
   });
 }
