@@ -4,7 +4,7 @@ function login() {
   var username = document.getElementById("username").value;
   var password = document.getElementById("password").value;
 
-  if (username === "seu_usuario" && password === "sua_senha") {
+  if (username === "Gui123@" && password === "Vokarine123@") {
     document.getElementById("login-container").style.display = "none";
     document.getElementById("main-container").style.display = "block";
   } else {
